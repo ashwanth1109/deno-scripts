@@ -1,5 +1,6 @@
-import * as cdk from '@aws-cdk/core';
-import { AutoDeleteBucket } from '@mobileposse/auto-delete-bucket';
+import * as cdk from "@aws-cdk/core";
+import { AutoDeleteBucket } from "@mobileposse/auto-delete-bucket";
+import { BucketDeployment, Source } from "@aws-cdk/aws-s3-deployment";
 
 export class DeployStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
@@ -7,8 +8,14 @@ export class DeployStack extends cdk.Stack {
 
     // The code that defines your stack goes here
 
-    new AutoDeleteBucket(this, 'deno-scripts', {
-      bucketName: 'deno-scripts'
-    })
+    const destinationBucket = new AutoDeleteBucket(this, "deno-scripts", {
+      bucketName: "deno-scripts",
+      publicReadAccess: true,
+    });
+
+    new BucketDeployment(this, "DeployWithInvalidation", {
+      destinationBucket,
+      sources: [Source.asset("../dist")],
+    });
   }
 }
