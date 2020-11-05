@@ -8,3 +8,8 @@ The repo also contains CDK code to deploy my scripts and publish them as S3 asse
 `npm run build` => builds all deno scripts from the "scripts" folder into the "dist" folder
 
 `npm run deploy` => deploys the "dist" assets into the s3 bucket
+
+## Scripts:
+
+Mdx Parser (pre-compilation):
+https://deno-scripts.s3.amazonaws.com/mdx-parser.js
