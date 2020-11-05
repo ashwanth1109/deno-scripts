@@ -1,0 +1,18 @@
+{
+  "name": "deno-scripts",
+  "version": "1.0.0",
+  "description": "A repo to store all my general purpose scripts written in Deno.\r The repo also contains CDK code to deploy my scripts and publish them as S3 assets, so that it can be used to run with Deno in my other repositories.",
+  "main": "index.js",
+  "dependencies": {
+    "typescript": "4.0.5",
+    "typescript-deno-plugin": "1.31.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "deno run --allow-read --allow-run build.ts",
+    "deploy": "cd deploy && npm run deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
