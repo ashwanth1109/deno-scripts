@@ -8,8 +8,8 @@ await emptyDir(destDir);
 
 const [diagnostics, emit] = await Deno.bundle(source, undefined, {
   lib: ["esnext", "es2017", "dom", "dom.iterable", "deno.ns"],
-  target: "es2015",
-  module: "es2015",
+  target: "esnext",
+  module: "esnext",
   experimentalDecorators: true,
   sourceMap: true,
 });
