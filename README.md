@@ -6,4 +6,5 @@ The repo also contains CDK code to deploy my scripts and publish them as S3 asse
 ## Commands:
 
 `npm run build` => builds all deno scripts from the "scripts" folder into the "dist" folder
+
 `npm run deploy` => deploys the "dist" assets into the s3 bucket
