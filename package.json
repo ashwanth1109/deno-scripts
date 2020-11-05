@@ -10,6 +10,7 @@
   "devDependencies": {},
   "scripts": {
     "build": "deno run --allow-read --allow-run build.ts",
+    "predeploy": "npm run build",
     "deploy": "cd deploy && npm run deploy"
   },
   "keywords": [],
