@@ -5,16 +5,14 @@ The repo also contains CDK code to deploy my scripts and publish them as S3 asse
 
 ## Commands:
 
-`npm run build` => builds all deno scripts from the "scripts" folder into the "dist" folder
-
-`npm run deploy` => deploys the "dist" assets into the s3 bucket
+`npm run deploy` => deploys the "scripts" assets into the s3 bucket
 
 ## Scripts:
 
 ### Mdx Parser:
 
 ```shell script
-deno run --allow-read https://deno-scripts.s3.amazonaws.com/mdx-parser.js ./README.md
+deno run --allow-read https://deno-scripts.s3.amazonaws.com/mdx-parser/index.ts ./README.md
 ```
 
 ## Outdated caches
@@ -22,5 +20,5 @@ deno run --allow-read https://deno-scripts.s3.amazonaws.com/mdx-parser.js ./READ
 If changes have been made to the script source, you must reload your cache as follows:
 
 ```shell script
-deno cache https://deno-scripts.s3.amazonaws.com/mdx-parser.js --reload
+deno cache https://deno-scripts.s3.amazonaws.com/mdx-parser/index.ts --reload
 ```
