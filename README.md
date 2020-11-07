@@ -12,8 +12,11 @@ The repo also contains CDK code to deploy my scripts and publish them as public 
 ### Mdx Parser:
 
 ```shell script
-deno run --allow-read https://deno-scripts.s3.amazonaws.com/mdx-parser/index.ts ./README.md
+deno run -A --unstable https://deno-scripts.s3.amazonaws.com/mdx-parser.ts ../content/
 ```
+
+Note `content` is the directory where you store your markdown files.
+The generated files will be output to `./src/auto-generated/` from the root of where you run the deno command.
 
 #### Outdated caches
 
