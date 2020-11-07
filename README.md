@@ -15,7 +15,7 @@ The repo also contains CDK code to deploy my scripts and publish them as public 
 deno run --allow-read https://deno-scripts.s3.amazonaws.com/mdx-parser/index.ts ./README.md
 ```
 
-## Outdated caches
+#### Outdated caches
 
 If changes have been made to the script source, you must reload your cache as follows:
 
@@ -23,7 +23,7 @@ If changes have been made to the script source, you must reload your cache as fo
 deno cache https://deno-scripts.s3.amazonaws.com/mdx-parser/index.ts --reload
 ```
 
-## Developer Note
+#### Developer Note
 
 The mdx parser is a custom markdown parser that converts markdown documents into React components.
 This is a very crude implementation done in one day and is not extensible, nor is it efficient.
