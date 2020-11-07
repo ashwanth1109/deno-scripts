@@ -3,6 +3,10 @@
 A repo to store all my general purpose scripts written in Deno.
 The repo also contains CDK code to deploy my scripts and publish them as public assets in my S3 bucket (called 'deno-scripts'), so that it can be used to run with Deno in my other repositories.
 
+Scripts currently added:
+
+- Mdx Parser
+
 ## Commands:
 
 `npm run deploy` => deploys the "scripts" assets into the s3 bucket
