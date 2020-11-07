@@ -15,7 +15,7 @@ export class DeployStack extends cdk.Stack {
 
     new BucketDeployment(this, "DeployWithInvalidation", {
       destinationBucket,
-      sources: [Source.asset("../scripts")],
+      sources: [Source.asset("../dist")],
     });
   }
 }
