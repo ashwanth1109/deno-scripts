@@ -11,7 +11,8 @@
   "scripts": {
     "build": "deno run --allow-read --allow-run build.ts",
     "predeploy": "npm run build",
-    "deploy": "cd deploy && npm run deploy"
+    "deploy": "cd deploy && npm run deploy",
+    "test": "deno run -A --unstable .\\scripts\\mdx-parser\\index.ts ..\\code-ninja-v2\\content\\"
   },
   "keywords": [],
   "author": "",
