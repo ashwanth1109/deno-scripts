@@ -2,15 +2,19 @@ import { ensureDir } from "./dependencies.ts";
 
 await ensureDir("./dist");
 
-const cmd = Deno.run({
-  cmd: [
-    "deno",
-    "bundle",
-    "--unstable",
-    "./scripts/copy/index.ts",
-    "dist/copy.js",
-  ],
-});
+const bundleAssets = ["copy", "mdx-parser"];
 
-await cmd.status();
-cmd.close();
+for await (const asset of bundleAssets) {
+  const cmd = Deno.run({
+    cmd: [
+      "deno",
+      "bundle",
+      "--unstable",
+      `./scripts/${asset}/index.ts`,
+      `dist/${asset}.js`,
+    ],
+  });
+
+  await cmd.status();
+  cmd.close();
+}

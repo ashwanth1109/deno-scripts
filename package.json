@@ -10,8 +10,7 @@
   "devDependencies": {},
   "scripts": {
     "build": "deno run -A --unstable scripts/bundler.ts",
-    "deploy": "cd deploy && npm run deploy",
-    "test": "deno run -A --unstable .\\scripts\\mdx-parser\\index.ts ..\\code-ninja-v2\\content\\"
+    "deploy": "cd deploy && npm run deploy"
   },
   "keywords": [],
   "author": "",
