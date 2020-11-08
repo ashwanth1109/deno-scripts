@@ -9,7 +9,7 @@ Scripts currently added:
 
 ## Commands:
 
-`npm run deploy` => deploys the "scripts" assets into the s3 bucket
+`npm run deploy` => runs bundler to build scripts & deploys the "scripts" assets into the s3 bucket
 
 ## Scripts:
 
