@@ -27,7 +27,7 @@ The generated files will be output to `./src/auto-generated/` from the root of w
 If changes have been made to the script source, you must reload your cache as follows:
 
 ```shell script
-deno cache https://deno-scripts.s3.amazonaws.com/mdx-parser/index.ts --reload
+deno cache https://deno-scripts.s3.amazonaws.com/mdx-parser.js --reload
 ```
 
 #### Developer Note
