@@ -83,7 +83,7 @@ for await (const fileOrFolder of walk(folder)) {
         // Heading
         heading = item.slice(2);
         homePageView = `${homePageView}
-        <Link to="/articles/${fileOrFolder.name.slice(0, -3)}">
+        <Link to="/articles/${fileOrFolder.name.slice(0, -3).split(".")[1]}">
         <h3 className="mt-0 hover:underline">${heading}</h3></Link>`;
       } else if (item.slice(0, 6) === "```mdx") {
         mdxFlag = true;
@@ -155,7 +155,7 @@ for await (const fileOrFolder of walk(folder)) {
         `;
 
     articleFile = `${articleFile}
-    "${fileOrFolder.name.slice(0, -3)}": () => (
+    "${fileOrFolder.name.slice(0, -3).split(".")[1]}": () => (
       <div className="mb-32">
         <h1>${heading}</h1>
         <div>
