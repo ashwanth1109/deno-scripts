@@ -16,9 +16,13 @@ import { Paper } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { themeSelector } from '@state/theme.state';
+import { clientSelector, DEVICE } from '@state/client.state';
 
 const HomePageView = () => {
   const theme = useSelector(themeSelector);
+  const client = useSelector(clientSelector);
+
+  const isMobile = client.device === DEVICE.MOBILE;
   
   return (
     <div>`;
@@ -46,7 +50,9 @@ for await (const fileOrFolder of walk(folder)) {
 
     homePageView = `${homePageView}
         <Paper elevation={0} className="mt-8" style={{ backgroundColor: theme.body.bg, color: theme.body.text }}>
-        <div className="flex row justify-between items-center mb-2">
+        <div className={\`flex \$\{
+        isMobile ? 'flex-col' : 'flex-row justify-between items-center'
+    \} mb-2\`}>
         `;
 
     let mdxFlag = false;
@@ -63,16 +69,16 @@ for await (const fileOrFolder of walk(folder)) {
         if (item.slice(0, 8) === "Length: ") {
           const len = item.slice(8);
           homePageView = `${homePageView}
-          <p className="text-lg my-0">${len}</p>`;
+          {!isMobile && <p className="text-lg my-0">10 mins</p>}`;
         } else if (item.slice(0, 6) === "Date: ") {
           const date = item.slice(6);
           homePageView = `${homePageView}
-          </div><div className="flex row items-center">
-          <span className="date-tag">${date}</span>`;
+          </div><div className="flex row items-center flex-wrap w-full">
+          <div className="date-tag">${date}</div>`;
         } else if (item.slice(0, 6) === "Tags: ") {
           const tags = item.slice(6).split(", ");
           tags.forEach((tag) => {
-            homePageView = `${homePageView}<span className="article-tags" style={{backgroundColor: theme.tag}}>${tag}</span>`;
+            homePageView = `${homePageView}<div className="article-tags" style={{backgroundColor: theme.tag}}>${tag}</div>`;
           });
 
           homePageView = `${homePageView}</div>`;
@@ -92,7 +98,7 @@ for await (const fileOrFolder of walk(folder)) {
         heading = item.slice(2);
         homePageView = `${homePageView}
         <Link to="/articles/${fileOrFolder.name.slice(0, -3).split(".")[1]}">
-        <h3 className="mt-0 hover:underline">${heading}</h3></Link>`;
+        <h3 className={\`mt-0 hover:underline \$\{isMobile ? 'text-2xl' : ''\}\`}>${heading}</h3></Link>`;
       } else if (item.slice(0, 6) === "```mdx") {
         mdxFlag = true;
       } else if (item.slice(0, 3) === "```") {
