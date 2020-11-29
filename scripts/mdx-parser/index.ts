@@ -4,6 +4,7 @@
 import { exists, walk, green } from "../dependencies.ts";
 
 const folder = Deno.args[0];
+const encoder = new TextEncoder();
 
 if (!(await exists(folder))) {
   throw Error("Directory does not exist");
@@ -202,11 +203,10 @@ export default articles;`;
 
 // TODO: Adopt similar pattern everywhere else (very elegant solution)
 articleFile = articleFile.replace(
-  /\[([^\]]+)]\(([^)]+)\)/,
+  /\[([^\]]+)]\(([^)]+)\)/g,
   '<a className="underline" href="$2" target="_blank">$1</a>'
 );
 
-const encoder = new TextEncoder();
 const homePageHtml = encoder.encode(homePageView);
 await Deno.writeFile("./src/auto-generated/home.tsx", homePageHtml, {
   append: false,
