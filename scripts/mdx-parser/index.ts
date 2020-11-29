@@ -69,7 +69,7 @@ for await (const fileOrFolder of walk(folder)) {
         if (item.slice(0, 8) === "Length: ") {
           const len = item.slice(8);
           homePageView = `${homePageView}
-          {!isMobile && <p className="text-lg my-0">10 mins</p>}`;
+          {!isMobile && <p className="text-lg my-0">${len}</p>}`;
         } else if (item.slice(0, 6) === "Date: ") {
           const date = item.slice(6);
           homePageView = `${homePageView}
